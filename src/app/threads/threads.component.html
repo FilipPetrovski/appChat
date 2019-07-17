@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-xs-12" *ngFor="let thread of threads; let i = index" (click)="onThreadClick(i)">
+    <a style="cursor: pointer" routerLinkActive="active" class="list-group-item clearfix">
+      <span class="pull-left">
+      <img [src]="thread.avatarSrc" alt='image not found' class="img-responsive" style="max-height: 50px; max-width: 50px;">
+      </span>
+      <h4 class="list-group-item-heading">{{ thread.name }}</h4>
+      <p class="list-group-item-text">{{ thread.lastMessage }}</p>
+    </a>
+  </div>
+</div>
+
+
+
+

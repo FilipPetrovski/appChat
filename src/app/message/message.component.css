@@ -1,0 +1,16 @@
+button {
+  margin-left: -25px;
+}
+input {
+  margin-right: -25px;
+}
+.panel-heading {
+  overflow-y: scroll;
+  max-height: 400px;
+}
+.panel-body {
+  background-color: white;
+  margin-top: 20px;
+}
+
+

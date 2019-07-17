@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4 pull-right">
+      <button class="btn btn-danger" (click)="buttonCloseClicked()"> X </button>
+      <div class="panel panel-default">
+        <div class="panel-heading" #panel>
+          <div class="col-md-12 col-xs-12">
+            <h5 class="panel-title"><span class="glyphicon glyphicon-comment"></span> Chat - {{currentThread.name}}</h5>
+            <hr>
+          </div>
+          <div class="row" *ngFor="let message of messagesFromThreadWithId">
+            <div class="col-xs-12">
+              <div class="panel-body" *ngIf="message.author === null">
+                <div class="col-xs-9">
+                  <p> {{message.thread.lastMessage}}</p>
+                </div>
+                <img src="{{message.thread.avatarSrc}}" alt='image not found' class="img-responsive pull-right" style="max-height: 50px; max-width: 50px">
+              </div>
+              <div class="panel-body" *ngIf="message.author">
+                <img src="{{message.author.avatarSrc}}" alt='image not found' class="img-responsive pull-left" style="max-height: 50px; max-width: 50px">
+                <div class="col-xs-9">
+                  <p> {{message.thread.lastMessage}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-9">
+              <p class="text-muted"> {{message.sentAt | date: 'shortTime' }}</p>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <hr>
+            <div class="row">
+              <div class="col-xs-9">
+                <input type="text" placeholder="Write your message" class="form-control" #messageInput (keydown.enter)="sendMessage(messageInput.value)">
+              </div>
+              <div class="col-xs-3">
+                <button type="button" class="btn btn-primary"  (click)="sendMessage(messageInput.value)">Send</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
